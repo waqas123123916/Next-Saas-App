@@ -1,8 +1,12 @@
+import { Button } from '@/components/ui/button'
 import React from 'react'
 
 const Page = () => {
   return (
-    <div>Page</div>
+    <div>well come to my saas app
+
+      <Button variant={'outline'} >Click me</Button>
+    </div>
   )
 }
 
