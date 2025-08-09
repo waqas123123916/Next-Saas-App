@@ -23,6 +23,9 @@ import {
 } from "@/components/ui/select";
 import { subjects } from "@/constants";
 import { Textarea } from "./ui/textarea";
+import { createCompanion } from "@/lib/actions/companions.action";
+import { ja } from "zod/locales";
+import { redirect } from "next/navigation";
 const formSchema = z.object({
   name: z.string().min(1, { message: "Companion is required" }),
   subject: z.string().min(1, { message: "Subject is required" }),
@@ -47,8 +50,18 @@ const CompanionForm = () => {
   });
 
   // 2. Define a submit handler.
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
     console.log(values);
+    const companion = await createCompanion(values);
+    if (companion) {
+      
+      alert("Companion created successfully!");
+      redirect(`/companions/${companion.id}`);
+    } else {
+      alert("Failed to create companion. Please try again.");
+      console.log("Error creating companion:", companion);
+      redirect('/');
+    }
   };
 
   return (
