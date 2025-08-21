@@ -6,6 +6,7 @@ import Image from "next/image";
 import React, { use, useEffect, useRef, useState } from "react";
 import soundwaves from "@/constants/soundwaves.json";
 import { error } from "console";
+import { addToSessionHistory } from "@/lib/actions/companions.action";
 
 enum CallStatus {
   INACTIVE = "INACTIVE",
@@ -37,12 +38,18 @@ const CompanionComponent = ({
   }, [isSpeaking, lottieRef]);
 
   useEffect(() => {
-    const onCallEnd = () => {
-      setCallStatus(CallStatus.FINISHED);
-    };
-
     const onCallStart = () => {
       setCallStatus(CallStatus.ACTIVE);
+    };
+
+    const onCallEnd = async () => {
+      setCallStatus(CallStatus.FINISHED);
+      try {
+        await addToSessionHistory(companionId);
+        console.log("Session history updated successfully");
+      } catch (error) {
+        console.error("Failed to add session to history:", error);
+      }
     };
 
     const onError = (error: Error) => {
@@ -168,7 +175,11 @@ const CompanionComponent = ({
             />
             <p className="font-bold text-2xl">{userName}</p>
           </div>
-          <button className="btn-mic" onClick={toggleMicrophone} disabled={callStatus !== CallStatus.ACTIVE} >
+          <button
+            className="btn-mic"
+            onClick={toggleMicrophone}
+            disabled={callStatus !== CallStatus.ACTIVE}
+          >
             <Image
               src={isMuted ? "/icons/mic-off.svg" : "/icons/mic-on.svg"}
               alt="mic"
@@ -200,7 +211,7 @@ const CompanionComponent = ({
 
       <section className="transcript">
         <div className="transcript-message on-scrollbar">
-          {messages.map((message,index) => {
+          {messages.map((message, index) => {
             if (message.role === "assistant") {
               return (
                 <p key={index} className="">
