@@ -50,6 +50,7 @@ const Profile = async () => {
                 alt="checkmark"
                 width={22}
                 height={22}
+              
               />
               <p className="text-2xl font-bold">{sessionHistory.length}</p>
             </div>

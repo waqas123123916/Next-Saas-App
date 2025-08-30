@@ -8,12 +8,12 @@ export const subjects = [
 ];
 
 export const subjectsColors = {
-  science: "#E5D0FF",
-  maths: "#FFDA6E",
-  language: "#BDE7FF",
-  coding: "#FFC8E4",
-  history: "#FFECC8",
-  economics: "#C8FFDF",
+  science: "#0f766e",
+  maths: "#047857",
+  language: "#059669",
+  coding: "#10b981",
+  history: "#34d399",
+  economics: "#6ee7b7",
 };
 
 export const voices = {
@@ -28,7 +28,7 @@ export const recentSessions = [
     name: "Neura the Brainy Explorer",
     topic: "Neural Network of the Brain",
     duration: 45,
-    color: "#E5D0FF",
+    color: "#0f766e",
   },
   {
     id: "2",
@@ -36,7 +36,7 @@ export const recentSessions = [
     name: "Countsy the Number Wizard",
     topic: "Derivatives & Integrals",
     duration: 30,
-    color: "#FFDA6E",
+    color: "#047857",
   },
   {
     id: "3",
@@ -44,7 +44,7 @@ export const recentSessions = [
     name: "Verba the Vocabulary Builder",
     topic: "English Literature",
     duration: 30,
-    color: "#BDE7FF",
+    color: "#059669",
   },
   {
     id: "4",

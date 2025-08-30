@@ -5,10 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --primary: oklch(0.205 0 0);
+  --primary: #1e1e1e;
 
-  --cta: #2c2c2c;
-  --cta-gold: #fccc41;
+  --cta: #1e1e1e;
+  --cta-gold: #10b981;
   --radius: 0.625rem;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -87,40 +87,41 @@
 
 body {
   font-family: var(--font-bricolage);
+  background:  var(--color-slate-900);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: var(--color-slate-900);
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --primary: #10b981;
+  --primary-foreground: #0f172a;
+  --secondary: #334155;
+  --secondary-foreground: #f8fafc;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #334155;
+  --accent-foreground: #f8fafc;
+  --destructive: #ef4444;
+  --border: rgba(248, 250, 252, 0.1);
+  --input: rgba(248, 250, 252, 0.15);
+  --ring: #64748b;
+  --chart-1: #10b981;
+  --chart-2: #059669;
+  --chart-3: #047857;
+  --chart-4: #0d9488;
+  --chart-5: #0f766e;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #10b981;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: rgba(248, 250, 252, 0.1);
+  --sidebar-ring: #64748b;
 }
 
 @layer base {
@@ -146,48 +147,48 @@ body {
     @apply flex flex-wrap gap-4 w-full max-md:justify-center;
   }
   .companion-card {
-    @apply flex flex-col rounded-4xl border border-black px-4 py-4 gap-5 w-full min-lg:max-w-[410px] justify-between;
+    @apply flex flex-col rounded-4xl bg-gradient-to-br from-slate-900 to-emerald-900 border border-slate-700 px-4 py-4 gap-5 w-full min-lg:max-w-[410px] justify-between shadow-md hover:shadow-lg transition-all duration-300;
   }
   .subject-badge {
-    @apply bg-black text-white rounded-4xl text-sm px-2 py-1 capitalize;
+    @apply bg-slate-800 text-emerald-400 rounded-4xl text-sm px-2 py-1 capitalize font-medium;
   }
   .companion-bookmark {
-    @apply px-2 bg-black rounded-4xl flex items-center h-full aspect-square cursor-pointer;
+    @apply px-2 bg-slate-800 hover:bg-slate-700 rounded-4xl flex items-center h-full aspect-square cursor-pointer transition-colors duration-200;
   }
   .input {
-    @apply !border-black !bg-white focus-visible:!ring-0 focus-visible:!border-black !w-full;
+    @apply !border-emerald-500 !bg-white dark:!bg-slate-800 focus-visible:!ring-0 focus-visible:!border-emerald-600 !w-full;
   }
   .rounded-border {
-    @apply rounded-4xl border border-black;
+    @apply rounded-4xl border border-emerald-500;
   }
   .cta-section {
-    @apply bg-cta text-white rounded-4xl px-7 py-10 flex flex-col items-center text-center gap-5 w-1/3 max-lg:w-1/2 max-md:w-full;
+    @apply bg-gradient-to-br from-slate-900 to-emerald-900 text-white rounded-4xl px-7 py-10 flex flex-col items-center text-center gap-5 w-1/3 max-lg:w-1/2 max-md:w-full shadow-lg;
   }
   .cta-badge {
-    @apply bg-cta-gold rounded-4xl px-3 py-1.5 text-black;
+    @apply bg-emerald-400 rounded-4xl px-3 py-1.5 text-slate-900 font-medium;
   }
   .btn-primary {
-    @apply bg-primary text-white rounded-xl cursor-pointer px-4 py-2 flex items-center gap-2;
+    @apply bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl cursor-pointer px-4 py-2 flex items-center gap-2 transition-colors duration-200 shadow-sm;
   }
   .navbar {
-    @apply flex items-center justify-between mx-auto w-full px-14 py-4 bg-white max-sm:px-4;
+    @apply flex items-center justify-between  mx-auto max-w-[1400px] px-14 py-4 bg-white dark:bg-slate-900 max-sm:px-4 shadow-sm;
   }
   .btn-signin {
-    @apply border border-black rounded-4xl px-4 py-2.5 text-sm font-semibold flex items-center gap-2 cursor-pointer;
+    @apply border border-emerald-500 rounded-4xl px-4 py-2.5 text-sm font-semibold flex items-center gap-2 cursor-pointer hover:bg-emerald-50 dark:hover:bg-slate-800 transition-colors duration-200;
   }
   .companion-list {
-    @apply rounded-2xl border border-black px-7 pt-7 pb-10 max-lg:w-full bg-white;
+    @apply rounded-2xl border border-emerald-500 px-7 pt-7 pb-10 max-lg:w-full bg-white dark:bg-slate-800 shadow-md;
   }
   .companion-limit {
     @apply items-center justify-center flex flex-col gap-4 w-full min-2xl:w-1/2 pt-20 text-center;
   }
 
   .companion-section {
-    @apply border-2 border-orange-500 w-2/3 max-sm:w-full flex flex-col gap-4 justify-center items-center rounded-lg;
+    @apply border-2 border-emerald-500 w-2/3 max-sm:w-full flex flex-col gap-4 justify-center items-center rounded-lg bg-slate-900 shadow-lg;
   }
 
   .companion-avatar {
-    @apply size-[300px] flex items-center justify-center rounded-lg max-sm:size-[100px] mt-4;
+    @apply size-[300px] flex items-center justify-center rounded-lg max-sm:size-[100px] mt-4 bg-gradient-to-br from-slate-800 to-emerald-800 shadow-inner;
   }
   .companion-lottie {
     @apply size-[300px] max-sm:size-[100px];
@@ -197,7 +198,7 @@ body {
     @apply flex flex-col gap-4 w-1/3 max-sm:w-full max-sm:flex-row;
   }
   .user-avatar {
-    @apply border-2 border-black flex flex-col gap-4 items-center rounded-lg py-8 max-sm:hidden;
+    @apply border-2 border-emerald-500 flex flex-col gap-4 items-center rounded-lg py-8 max-sm:hidden bg-slate-800 shadow-md;
   }
 
   .btn-mic {
